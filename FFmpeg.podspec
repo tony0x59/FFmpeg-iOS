@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   
   s.platform     = :ios
 
-  s.source       = { :git => "https://github.com/chrisballinger/FFmpeg-iOS.git", :tag => "2.2", :submodules => true }
+  s.source       = { :git => "https://github.com/tony7day/FFmpeg-iOS.git", :tag => "2.2", :submodules => true }
 
   s.default_subspec = 'precompiled'
 
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
     ss.public_header_files = 'ffmpeg-ios-static-libs/include/**/*.h'
     ss.header_mappings_dir = 'ffmpeg-ios-static-libs/include'
     ss.vendored_libraries  = 'ffmpeg-ios-static-libs/lib/*.a'
-    ss.libraries = 'ssl', 'crypto', 'rtmp', 'avcodec', 'avdevice', 'avfilter', 'avformat', 'avutil', 'swresample', 'swscale', 'iconv', 'z', 'bz2'
+    ss.libraries = 'avcodec', 'avdevice', 'avfilter', 'avformat', 'avutil', 'swresample', 'swscale', 'iconv', 'z', 'bz2'
   end
 
 end
