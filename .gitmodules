@@ -1,3 +1,0 @@
-[submodule "ffmpeg-ios-static-libs"]
-	path = ffmpeg-ios-static-libs
-	url = https://github.com/tony7day/ffmpeg-ios-static-libs.git
