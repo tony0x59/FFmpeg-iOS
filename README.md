@@ -9,6 +9,7 @@
 
 ## TODO
 
+* add librtmp library.
 * remove libssl for reduce lib size.
 
 ## Usage
