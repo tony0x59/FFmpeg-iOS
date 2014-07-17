@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "FFmpeg"
-  s.version      = "2.2"
+  s.version      = "2.3"
   s.summary      = "FFmpeg static libraries compiled for iOS"
   s.homepage     = "https://github.com/chrisballinger/FFmpeg-iOS"
   
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   
   s.platform     = :ios
 
-  s.source       = { :git => "https://github.com/tony7day/FFmpeg-iOS.git", :submodules => true }
+  s.source       = { :git => "https://github.com/tony7day/FFmpeg-iOS.git", :tag => 'v2.2', :submodules => true }
 
   s.default_subspec = 'precompiled'
 
