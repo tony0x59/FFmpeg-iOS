@@ -2,13 +2,22 @@
 
 [FFmpeg](http://www.ffmpeg.org) static libraries compiled for armv7, armv7s and x86_64 for use in iOS development.
 
+## What's news?
+
+* minimize ffmpeg lib for rtmp publisher and player.
+* ffmpeg update to 2.3 version. (I like new version :])
+
+## TODO
+
+* remove libssl for reduce lib size.
+
 ## Usage
 
 Just drag the `/dependencies/include` and `/dependencies/lib` folders into your Xcode project and add them to your build target. If you want to, you can modify the `build-ffmpeg.sh` script to suit your needs and recompile.
 
 ## Status
 
-This most recent version has been tested with FFmpeg version 2.1.1 and version 7.0 of the iOS SDK.
+This most recent version has been tested with FFmpeg version 2.3 and version 7.0 of the iOS SDK.
 
 ## Compilation
 
