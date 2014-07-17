@@ -25,7 +25,7 @@
 ###########################################################################
 #  Choose your ffmpeg version and your currently-installed iOS SDK version:
 #
-VERSION="2.2"
+VERSION="2.3"
 SDKVERSION="7.1"
 MINIOSVERSION="6.0"
 VERIFYGPG=true
@@ -145,12 +145,17 @@ do
     if [ ! -d "$OUTPUT_DIR" ]; then
         mkdir -p ${OUTPUT_DIR}
 
-        ./configure --disable-programs --disable-shared --enable-static --enable-pic --enable-small --enable-librtmp --enable-openssl ${DEBUG_CONFIG_ARGS} \
-        --disable-decoders --enable-decoder=aac --enable-decoder=h264 \
-        --disable-encoders --enable-encoder=aac \
-        --disable-demuxers --enable-demuxer=aac --enable-demuxer=mov --enable-demuxer=mpegts --enable-demuxer=flv --enable-demuxer=h264 --enable-demuxer=caf \
-        --disable-muxers --enable-muxer=mov --enable-muxer=mp4 --enable-muxer=hls --enable-muxer=h264 --enable-muxer=mpegts --enable-muxer=flv --enable-muxer=f4v --enable-muxer=adts --enable-muxer=caf \
-        --disable-filters --disable-doc \
+        ./configure --disable-programs --disable-shared --enable-static --enable-small ${DEBUG_CONFIG_ARGS} \
+        --disable-everything \
+        --disable-decoders  --enable-decoder=h264 --enable-decoder=rawvideo \
+        --disable-encoders  \
+        --disable-demuxers --enable-demuxer=flv --enable-demuxer=h264 \
+        --disable-muxers --enable-muxer=flv --enable-muxer=adts \
+        --disable-parsers --enable-parser=h264 --enable-parser=aac \
+        --disable-protocols --enable-protocol=rtmp \
+        --disable-bsfs --enable-bsf=aac_adtstoasc --enable-bsf=h264_mp4toannexb \
+        --disable-filters \
+        --disable-doc \
         --cc=${CCACHE}${DEVELOPER}/usr/bin/gcc ${EXTRA_CONFIG} \
         --prefix="${INTERDIR}/${PLATFORM}${SDKVERSION}-${ARCH}.sdk" \
         --sysroot=${DEVELOPER}/Platforms/${PLATFORM}.platform/Developer/SDKs/${PLATFORM}${SDKVERSION}.sdk \
