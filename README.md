@@ -2,7 +2,7 @@
 
 [FFmpeg](http://www.ffmpeg.org) static libraries compiled for armv7, armv7s and x86_64 for use in iOS development.
 
-## What's news?
+## What's new?
 
 * minimize ffmpeg lib for rtmp publisher and player.
 * ffmpeg update to 2.3 version. (I like new version :])
