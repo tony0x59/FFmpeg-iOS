@@ -53,7 +53,8 @@ fi
 
 # no need to change this since xcode build will only compile in the
 # necessary bits from the libraries we create
-ARCHS="i386 x86_64 armv7 armv7s arm64"
+#ARCHS="i386 x86_64 armv7 armv7s arm64"
+ARCHS="armv7"
 
 DEVELOPER=`xcode-select -print-path`
 
@@ -109,7 +110,7 @@ if $VERIFYGPG; then
 fi
 
 # overwrite old file
-tar zxf ffmpeg-${VERSION}.tar.bz2 -C $SRCDIR
+#tar zxf ffmpeg-${VERSION}.tar.bz2 -C $SRCDIR
 cd "${SRCDIR}/ffmpeg-${VERSION}"
 
 set +e # don't bail out of bash script if ccache doesn't exist
@@ -147,15 +148,12 @@ do
         mkdir -p ${OUTPUT_DIR}
 
         ./configure --disable-programs --disable-shared --enable-static --enable-small ${DEBUG_CONFIG_ARGS} \
-        --disable-everything \
-        --disable-decoders  --enable-decoder=h264 --enable-decoder=aac --enable-decoder=rawvideo \
-        --disable-encoders  \
-        --disable-demuxers --enable-demuxer=flv --enable-demuxer=h264 \
-        --disable-muxers --enable-muxer=flv --enable-muxer=adts \
-        --disable-parsers --enable-parser=h264 --enable-parser=aac \
-        --disable-protocols --enable-protocol=rtmp \
-        --disable-bsfs --enable-bsf=aac_adtstoasc --enable-bsf=h264_mp4toannexb \
-        --disable-filters \
+         --enable-decoder=h264 --enable-decoder=aac --enable-decoder=rawvideo \
+         --enable-demuxer=flv --enable-demuxer=h264 \
+         --enable-muxer=flv --enable-muxer=adts \
+         --enable-parser=h264 --enable-parser=aac \
+         --enable-protocol=rtmp \
+         --enable-bsf=aac_adtstoasc --enable-bsf=h264_mp4toannexb \
         --disable-doc \
         --cc=${CCACHE}${DEVELOPER}/usr/bin/gcc ${EXTRA_CONFIG} \
         --prefix="${INTERDIR}/${PLATFORM}${SDKVERSION}-${ARCH}.sdk" \

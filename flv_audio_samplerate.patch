@@ -1,0 +1,11 @@
+--- flvenc.c	2014-08-18 09:57:03.000000000 +0800
++++ flvenc_new.c	2014-08-18 09:58:02.000000000 +0800
+@@ -75,7 +75,7 @@
+                                                    : FLV_SAMPLESSIZE_8BIT;
+ 
+     if (enc->codec_id == AV_CODEC_ID_AAC) // specs force these parameters
+-        return FLV_CODECID_AAC | FLV_SAMPLERATE_44100HZ |
++        return FLV_CODECID_AAC | FLV_SAMPLERATE_22050HZ |
+                FLV_SAMPLESSIZE_16BIT | FLV_STEREO;
+     else if (enc->codec_id == AV_CODEC_ID_SPEEX) {
+         if (enc->sample_rate != 16000) {
